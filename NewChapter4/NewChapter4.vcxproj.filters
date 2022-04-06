@@ -18,7 +18,10 @@
     <ClInclude Include="Header.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Student.h">
+    <ClInclude Include="Cosmetics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Brand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -26,7 +29,10 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Student.cpp">
+    <ClCompile Include="Cosmetics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Brand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

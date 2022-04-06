@@ -1,40 +1,50 @@
-#include "Student.h"
+#include "Cosmetics.h"
 
-Student::Student() {
+Cosmetics::Cosmetics() {
 	name = "no name";
-	age = 15;
-	mark = 4;
+	expiringYear = 2022;
+	rating = 0;
+	cost = 0;
 }
-Student::Student(string name, int age, double mark) {
+Cosmetics::Cosmetics(string name, int expiringYear, int rating, double cost) {
 	this->name = name;
-	this->age = age;
-	this->mark = mark;
+	this->expiringYear = expiringYear;
+	this->rating = rating;
+	this->cost = cost;
 }
-Student::~Student() {
+Cosmetics::~Cosmetics() {
 
 }
-string Student::getName() {
+string Cosmetics::getName() {
 	return name;
 }
-void Student::setName(string name) {
+void Cosmetics::setName(string name) {
 	this->name = name;
 }
-int Student::getAge() {
-	return age;
+int Cosmetics::getCost() {
+	return cost;
 }
-void Student::setAge(int age) {
-	if (age >= 14 && age <= 100) {
-		this->age = age;
+void Cosmetics::setCost(int cost) {
+	if (cost >= 0 && cost <= 1000000) {
+		this->cost= cost;
 	}
 }
-int Student::getMark() {
-	return mark;
+int Cosmetics::getRating() {
+	return rating;
 }
-void Student::setMark(double mark) {
-	if (mark >= 0 && mark <= 10) {
-		this->mark = mark;
+void Cosmetics::setRating(int rating) {
+	if (cost >= 0 && cost <= 1000000) {
+		this->cost = cost;
 	}
 }
-string Student::getInfo() {
-	return name + ": age = " + to_string(age) + "; mark = " + to_string(mark);
+int Cosmetics::getExpiringYear() {
+	return expiringYear;
+}
+void Cosmetics::setExpiringYear(int expiringYear) {
+	if (expiringYear >= 2000 && expiringYear <= 2099) {
+		this->expiringYear = expiringYear;
+	}
+}
+string Cosmetics::getInfo() {
+	return name + ": expiring year = " + to_string(expiringYear) + "; rating = " + to_string(rating) + "; cost: " + to_string(cost);
 }

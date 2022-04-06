@@ -39,7 +39,7 @@ Cosmetics Brand::get(int index) {
 
 void Brand::add(Cosmetics cosmetics) {
 	if (list == NULL) {
-		lit = new Student;
+		lit = new Student[1];
 		count = 1;
 		list[0] = Student;
 	}
@@ -52,6 +52,7 @@ void Brand::add(Cosmetics cosmetics) {
 		temp[i] = cosmetics;
 		delete[] list;
 		list = temp;
+		count++;
 	}
 }
 

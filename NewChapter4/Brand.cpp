@@ -62,7 +62,7 @@ string Brand::getInfo() {
 	}
 	string msg = "Brand " + brand + ":\n";
 	for (int i = 0; i < count; i++) {
-		msg += list->getInfo() + "\n";
+		msg += list[i].getInfo() + "\n";
 	}
 	return msg;
 }

@@ -26,3 +26,5 @@ public:
 	void setCruelty_free(bool cruelty_free);
 	string getInfo();
 };
+
+

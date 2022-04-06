@@ -17,6 +17,7 @@ public:
 	void setBrand(string brand);
 	int getCount();
 	Cosmetics get(int index);
+	void add(Cosmetics cosmetics);
 
 	string getInfo();
 

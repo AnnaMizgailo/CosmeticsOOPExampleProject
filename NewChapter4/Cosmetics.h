@@ -11,7 +11,7 @@ private:
 
 public:
 	Cosmetics();
-	Cosmetics(string name, int expiringYear, int rating, double cost);
+	Cosmetics(string name, int expiringYear, int rating, double cost, bool vegan, bool cruelty_free);
 	~Cosmetics();
 	string getName();
 	void setName(string name);

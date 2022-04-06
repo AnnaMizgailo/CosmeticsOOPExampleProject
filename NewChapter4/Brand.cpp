@@ -32,11 +32,36 @@ int Brand::getCount() {
 }
 Cosmetics Brand::get(int index) {
 	if (index < 0 || index >= count || list != NULL) {
-		return Cosmetics();
+		return Cosmetics("", 0, 0);
 	}
 	return list[index];
 }
 
+void Brand::add(Cosmetics cosmetics) {
+	if (list == NULL) {
+		lit = new Student;
+		count = 1;
+		list[0] = Student;
+	}
+	else {
+		Student* temp = new Student[count + 1];
+		int i = 0;
+		for (; i < count; i++) {
+			temp[i] = list[i];
+		}
+		temp[i] = cosmetics;
+		delete[] list;
+		list = temp;
+	}
+}
+
 string Brand::getInfo() {
-	return brand + ": ";
+	if (list == NULL) {
+		return "Brand" + brand + " is empty";
+	}
+	string msg = "Brand " + name + ":\n";
+	for (int i = 0; i < count; i++) {
+		msg += list->getInfo() + "\n";
+	}
+	return msg;
 }

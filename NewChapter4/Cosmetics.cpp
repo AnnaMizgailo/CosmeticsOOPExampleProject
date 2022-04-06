@@ -6,7 +6,7 @@ Cosmetics::Cosmetics() {
 	rating = 0;
 	cost = 0;
 }
-Cosmetics::Cosmetics(string name, int expiringYear, int rating, double cost) {
+Cosmetics::Cosmetics(string name, int expiringYear, int rating, double cost, bool vegan, bool cruelty_free) {
 	this->name = name;
 	this->expiringYear = expiringYear;
 	this->rating = rating;

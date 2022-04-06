@@ -28,23 +28,23 @@ void Brand::setBrand(string brand) {
 	this->brand = brand;
 }
 int Brand::getCount() {
-
+	return count;
 }
 Cosmetics Brand::get(int index) {
 	if (index < 0 || index >= count || list != NULL) {
-		return Cosmetics("", 0, 0);
+		return Cosmetics();
 	}
 	return list[index];
 }
 
 void Brand::add(Cosmetics cosmetics) {
 	if (list == NULL) {
-		lit = new Student[1];
+		list = new Cosmetics[1];
 		count = 1;
-		list[0] = Student;
+		list[0] = cosmetics;
 	}
 	else {
-		Student* temp = new Student[count + 1];
+		Cosmetics* temp = new Cosmetics[count + 1];
 		int i = 0;
 		for (; i < count; i++) {
 			temp[i] = list[i];
@@ -60,7 +60,7 @@ string Brand::getInfo() {
 	if (list == NULL) {
 		return "Brand" + brand + " is empty";
 	}
-	string msg = "Brand " + name + ":\n";
+	string msg = "Brand " + brand + ":\n";
 	for (int i = 0; i < count; i++) {
 		msg += list->getInfo() + "\n";
 	}

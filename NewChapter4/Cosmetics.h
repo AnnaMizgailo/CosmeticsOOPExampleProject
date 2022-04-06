@@ -21,8 +21,9 @@ public:
 	void setExpiringYear(int expiringYear);
 	int getRating();
 	void setRating(int rating);
+	bool getVegan();
 	void setVegan(bool vegan);
-	int getCruelty_free();
+	bool getCruelty_free();
 	void setCruelty_free(bool cruelty_free);
 	string getInfo();
 };

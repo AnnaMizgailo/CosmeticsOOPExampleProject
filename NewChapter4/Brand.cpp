@@ -1,4 +1,4 @@
-#include "Brand.h"
+﻿#include "Brand.h"
 
 Brand::Brand() {
 	brand = "no name";

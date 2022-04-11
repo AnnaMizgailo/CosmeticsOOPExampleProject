@@ -1,4 +1,4 @@
-#include "Cosmetics.h"
+﻿#include "Cosmetics.h"
 
 Cosmetics::Cosmetics() {
 	name = "no name";

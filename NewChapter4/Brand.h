@@ -18,6 +18,7 @@ public:
 	int getCount();
 	Cosmetics get(int index);
 	void add(Cosmetics cosmetics);
+	void remove(int index);
 
 	string getInfo();
 

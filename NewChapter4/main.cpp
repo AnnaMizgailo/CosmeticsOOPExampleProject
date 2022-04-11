@@ -12,5 +12,6 @@ int main() {
 	brand.add(cs1);
 	brand.add(cs2);
 	brand.add(cs3);
-	cout << brand.getInfo();
+	cout << brand.getInfo()<<endl;
+	cout << Cosmetics::getCount()<<endl;
 }

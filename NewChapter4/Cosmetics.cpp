@@ -7,8 +7,10 @@ Cosmetics::Cosmetics() {
 	cost = 0;
 	vegan = false;
 	cruelty_free = false;
+	count++;
 }
 Cosmetics::Cosmetics(string name, int expiringYear, int rating, double cost, bool vegan, bool cruelty_free) {
+	count++;
 	this->name = name;
 	this->expiringYear = expiringYear;
 	this->rating = rating;
@@ -17,7 +19,7 @@ Cosmetics::Cosmetics(string name, int expiringYear, int rating, double cost, boo
 	this->cruelty_free = cruelty_free;
 }
 Cosmetics::~Cosmetics() {
-
+	count--;
 }
 string Cosmetics::getName() {
 	return name;
@@ -29,7 +31,7 @@ int Cosmetics::getCost() {
 	return cost;
 }
 void Cosmetics::setCost(int cost) {
-	if (cost >= 0 && cost <= 1000000) {
+	if (cost >= MIN_COST && cost <= MAX_COST) {
 		this->cost= cost;
 	}
 }
@@ -37,8 +39,8 @@ int Cosmetics::getRating() {
 	return rating;
 }
 void Cosmetics::setRating(int rating) {
-	if (cost >= 0 && cost <= 1000000) {
-		this->cost = cost;
+	if (rating>= MIN_RATING && rating <= MIN_RATING) {
+		this->rating = rating;
 	}
 }
 int Cosmetics::getExpiringYear() {

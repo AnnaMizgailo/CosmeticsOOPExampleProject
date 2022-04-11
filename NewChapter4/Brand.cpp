@@ -55,6 +55,21 @@ void Brand::add(Cosmetics cosmetics) {
 		count++;
 	}
 }
+void Brand::remove(int index) {
+	if (list != NULL && index >= 0 && index < count) {
+		Cosmetics* temp = new Cosmetics[count - 1];
+		for (int i = 0, j = 0; i < count; i++) {
+			if (i != index) {
+				temp[j] = list[i];
+				j++;
+			}	
+		}
+		delete[] list;
+		list = temp;
+		count--;
+	}
+	
+}
 
 string Brand::getInfo() {
 	if (list == NULL) {

@@ -142,11 +142,13 @@
     <ClInclude Include="Brand.h" />
     <ClInclude Include="Cosmetics.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="Manager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Brand.cpp" />
     <ClCompile Include="Cosmetics.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

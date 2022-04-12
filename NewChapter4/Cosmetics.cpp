@@ -1,5 +1,7 @@
 ﻿#include "Cosmetics.h"
 
+int Cosmetics::count = 0;
+
 Cosmetics::Cosmetics() {
 	name = "no name";
 	expiringYear = 2022;
@@ -27,7 +29,7 @@ string Cosmetics::getName() {
 void Cosmetics::setName(string name) {
 	this->name = name;
 }
-int Cosmetics::getCost() {
+double Cosmetics::getCost() {
 	return cost;
 }
 void Cosmetics::setCost(int cost) {

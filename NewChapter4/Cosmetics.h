@@ -3,7 +3,6 @@
 class Cosmetics {
 private:
 	static int count;
-
 	string name;
 	int expiringYear;
 	int rating;
@@ -17,7 +16,7 @@ public:
 	static const int MIN_RATING=  0;
 
 	static const int MAX_COST = 1000000;
-	static const int MIN_COST = 0.01;
+	static const int MIN_COST = 1;
 
 	Cosmetics();
 	Cosmetics(string name, int expiringYear, int rating, double cost, bool vegan, bool cruelty_free);
@@ -30,7 +29,7 @@ public:
 	string getName();
 	void setName(string name);
 
-	int getCost();
+	double getCost();
 	void setCost(int cost);
 	
 	int getExpiringYear();

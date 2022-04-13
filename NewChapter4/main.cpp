@@ -1,5 +1,11 @@
 ﻿#include "Header.h"
-#include "Brand.h"
+#include "Brand.h" 
+
+
+void changeRating(Cosmetics &cosmetics) {
+	srand(time(NULL));
+	cosmetics.rating = rand() % 10 + 1;
+}
 
 int main() {
 	Brand brand("NYX");

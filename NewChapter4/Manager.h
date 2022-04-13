@@ -16,8 +16,8 @@ public:
 	double calcAvgRating(Brand brand);
 
 	bool checkProduct(Brand brand, Cosmetics cosmetics);
-	int countOfProductWithCostGreaterThan(Brand brand, double cost);
-	int countOfProductWithCostLessThan(Brand brand, double cost);
+	int countOfProductsWithCostGreaterThan(Brand brand, double cost);
+	int countOfProductsWithCostLessThan(Brand brand, double cost);
 
 
 

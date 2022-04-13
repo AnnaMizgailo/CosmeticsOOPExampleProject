@@ -71,6 +71,11 @@ void Brand::remove(int index) {
 	
 }
 
+//void change(Cosmetics& cosmetics) {
+//	srand(time(NULL));
+//	cosmetics.rating = rand() % 10 + 1;
+//}
+
 string Brand::getInfo() {
 	if (list == NULL) {
 		return "Brand" + brand + " is empty";

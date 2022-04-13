@@ -1,6 +1,8 @@
 ﻿#include "Header.h"
 
 class Cosmetics {
+	friend void changeRating(Cosmetics &cosmetics);
+	//friend void Brand::change(Cosmetics& cosmetics);
 private:
 	static int count;
 	string name;

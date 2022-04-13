@@ -2,6 +2,8 @@
 #include "Header.h"
 #include "Cosmetics.h"
 class Brand{
+
+	friend class Manager;
 private:
 	string brand;
 	int count;
@@ -19,7 +21,7 @@ public:
 	Cosmetics get(int index);
 	void add(Cosmetics cosmetics);
 	void remove(int index);
-
+	void change(Cosmetics& cosmetics);
 	string getInfo();
 
 

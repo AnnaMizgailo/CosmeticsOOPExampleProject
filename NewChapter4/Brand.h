@@ -2,7 +2,6 @@
 #include "Header.h"
 #include "Cosmetics.h"
 class Brand{
-
 	friend class Manager;
 private:
 	string brand;

@@ -9,8 +9,8 @@ public:
 	void sortByCostAcs(Brand brand);
 	void sortByCostDesc(Brand brand);
 
-	void sortByRatingAcs(Brand brand);
-	void sortByRatingDesc(Brand brand);
+	static void sortByRatingAcs(Brand brand);
+	static void sortByRatingDesc(Brand brand);
 
 	double calcAvgCost(Brand brand);
 	double calcAvgRating(Brand brand);

@@ -1,5 +1,6 @@
 ﻿#include "Header.h"
 #include "Brand.h" 
+#include "Manager.h" 
 
 
 void changeRating(Cosmetics &cosmetics) {
@@ -19,6 +20,7 @@ int main() {
 	brand.add(cs2);
 	brand.add(cs3);
 
-	cout << brand.getInfo()<<endl;
-	cout << Cosmetics::getCount()<<endl;
+	/*cout << brand.getInfo()<<endl;
+	cout << Cosmetics::getCount()<<endl;*/
+	Manager::sortByRatingAcs(brand);
 }

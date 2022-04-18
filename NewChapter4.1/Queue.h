@@ -2,8 +2,10 @@
 #include <iostream>
 #include <string>
 
-class Queue
-{
+class Queue{
+private:
+	string item;
+public:
 	void enqueue(int item);
 	int dequeue();
 	int size();

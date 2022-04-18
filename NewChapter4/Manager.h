@@ -6,8 +6,8 @@ public:
 	void sortByNameAcs(Brand brand);
 	void sortByNameDesc(Brand brand);
 
-	void sortByCostAcs(Brand brand);
-	void sortByCostDesc(Brand brand);
+	static void sortByCostAcs(Brand brand);
+	static void sortByCostDesc(Brand brand);
 
 	static void sortByRatingAcs(Brand brand);
 	static void sortByRatingDesc(Brand brand);

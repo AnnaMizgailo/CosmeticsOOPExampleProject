@@ -16,9 +16,7 @@ Brand::Brand(string brand, Cosmetics* list, int count) {
 	this->list = list;
 }
 Brand::~Brand() {
-	if (list != NULL) {
-		delete[] list;
-	}
+	delete[] list;
 }
 
 string Brand::getBrand() {

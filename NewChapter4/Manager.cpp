@@ -8,26 +8,52 @@ void Manager::sortByNameDesc(Brand brand) {
 }
 
 void Manager::sortByCostAcs(Brand brand) {
-
-}
-void Manager::sortByCostDesc(Brand brand) {
-
-}
-
-void Manager::sortByRatingAcs(Brand brand) {
-	Brand* temp = new Brand[brand.count];
 	for (int i = 0; i < brand.count - 1; i++) {
-		for (int j = 0; j < brand.count - i; j++) {
-			if (brand.list[j].getRating() > brand.list[j + 1].getRating()) {
-				temp->list[j] = brand.list[j + 1];
-				temp->list[j + 1] = brand.list[j];
+		for (int j = 0; j < brand.count - 1 - i; j++) {
+			if (brand.list[j].getCost() > brand.list[j + 1].getCost()) {
+				Cosmetics temp = brand.list[j];
+				brand.list[j] = brand.list[j + 1];
+				brand.list[j + 1] = temp;
 			}
 		}
 	}
-	cout << temp->getInfo() << endl;
+	cout << brand.getInfo() << endl;
+}
+void Manager::sortByCostDesc(Brand brand) {
+	for (int i = 0; i < brand.count - 1; i++) {
+		for (int j = 0; j < brand.count - 1 - i; j++) {
+			if (brand.list[j].getCost() < brand.list[j + 1].getCost()) {
+				Cosmetics temp = brand.list[j];
+				brand.list[j] = brand.list[j + 1];
+				brand.list[j + 1] = temp;
+			}
+		}
+	}
+}
+
+void Manager::sortByRatingAcs(Brand brand) {
+	for (int i = 0; i < brand.count - 1; i++) {
+		for (int j = 0; j < brand.count - 1 - i; j++) {
+			if (brand.list[j].getRating() > brand.list[j + 1].getRating()) {
+				Cosmetics temp = brand.list[j];
+				brand.list[j] = brand.list[j + 1];
+				brand.list[j + 1] = temp;
+			}
+		}
+	}
+	cout << brand.getInfo() << endl;
 }
 void Manager::sortByRatingDesc(Brand brand) {
-
+	for (int i = 0; i < brand.count - 1; i++) {
+		for (int j = 0; j < brand.count - 1 - i; j++) {
+			if (brand.list[j].getRating() < brand.list[j + 1].getRating()) {
+				Cosmetics temp = brand.list[j];
+				brand.list[j] = brand.list[j + 1];
+				brand.list[j + 1] = temp;
+			}
+		}
+	}
+	cout << brand.getInfo() << endl;
 }
 
 double Manager::calcAvgCost(Brand brand){

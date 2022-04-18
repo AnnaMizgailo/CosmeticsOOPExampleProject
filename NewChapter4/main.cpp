@@ -20,7 +20,5 @@ int main() {
 	brand.add(cs2);
 	brand.add(cs3);
 
-	/*cout << brand.getInfo()<<endl;
-	cout << Cosmetics::getCount()<<endl;*/
-	Manager::sortByRatingAcs(brand);
+	Manager::sortByCostDesc(brand);
 }

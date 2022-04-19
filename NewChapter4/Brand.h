@@ -10,8 +10,9 @@ private:
 
 public:
 	Brand();
+	Brand(const Brand& src) = delete;
 	Brand(string brand);
-	Brand(string brand, Cosmetics* list, int count);
+	//Brand(string brand, Cosmetics* list, int count);
 	~Brand();
 
 	string getBrand();

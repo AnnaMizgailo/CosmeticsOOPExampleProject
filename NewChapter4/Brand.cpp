@@ -10,11 +10,11 @@ Brand::Brand(string brand) {
 	count = 0;
 	list = NULL;
 }
-Brand::Brand(string brand, Cosmetics* list, int count) {
-	this->brand = brand;
-	this->count = count;
-	this->list = list;
-}
+//Brand::Brand(string brand, Cosmetics* list, int count) {
+//	this->brand = brand;
+//	this->count = count;
+//	this->list = list;
+//}
 Brand::~Brand() {
 	delete[] list;
 }

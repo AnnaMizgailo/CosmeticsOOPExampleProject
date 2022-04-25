@@ -1,7 +1,7 @@
 #pragma once
 #include "Header.h"
 #include "Cosmetics.h"
-class TopProduct : public Cosmetics{
+class TopProduct : public Cosmetics {
 	private:
 		static int count;
 		string productNumber;
@@ -22,8 +22,6 @@ class TopProduct : public Cosmetics{
 
 		string getSkinType();
 		void setSkinType(string skinType);
-
-		
 
 		string getInfo();
 };

@@ -1,13 +1,8 @@
 ﻿#include "Header.h"
 #include "Brand.h" 
 #include "Manager.h" 
-
-
-void changeRating(Cosmetics &cosmetics) {
-	srand(time(NULL));
-	cosmetics.rating = rand() % 10 + 1;
-}
-
+#include "Cosmetics.h" 
+#include "TopProduct.h" 
 int main() {
 	Brand brand("NYX");
 	Cosmetics cs("foundation", 2024, 10, 10.99, true, true);
@@ -15,6 +10,7 @@ int main() {
 	Cosmetics cs2("blush", 2023, 9, 5.99, false, true);
 	Cosmetics cs3("concealer", 2025, 10, 3.89, true, false);
 	Cosmetics cs4("lip gloss", 2024, 10, 12.99, true, false);
+	TopProduct scs5("aqua", 2024, 10, 12.99, true, false, "010828", "sensitive");
 	
 	brand.add(cs);
 	brand.add(cs1);
@@ -22,4 +18,5 @@ int main() {
 	brand.add(cs3);
 
 	Manager::sortByNameDesc(brand);
+	cout << scs5.getInfo();
 }

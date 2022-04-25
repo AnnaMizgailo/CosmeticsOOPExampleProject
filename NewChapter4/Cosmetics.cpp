@@ -70,3 +70,4 @@ void Cosmetics::setCruelty_free(bool vegan) {
 string Cosmetics::getInfo() {
 	return name + ": expiring year = " + to_string(expiringYear) + "; rating = " + to_string(rating) + "; cost: " + to_string(cost) + "; vegan: " + to_string(vegan) + "; cruelty-free: " + to_string(cruelty_free);
 }
+

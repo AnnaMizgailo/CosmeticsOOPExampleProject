@@ -46,9 +46,7 @@ Point2D Point2D::operator ++() {
 	return Point2D(x, y);
 }
 Point2D Point2D::operator ++(int) {
-	x++;
-	y++;
-	return Point2D(x, y);
+	return Point2D(x++, y++);
 }
 
 string Point2D::getInfo() {

@@ -3,7 +3,7 @@
 
 int TopProduct::count = 0;
 
-TopProduct::TopProduct() {
+TopProduct::TopProduct() : Cosmetics() {
 	productNumber = "0";
 	skinType = "inidentified";
 }

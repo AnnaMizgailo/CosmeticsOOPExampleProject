@@ -141,3 +141,17 @@ int Manager::countOfProductsWithCostLessThan(Brand& brand, double cost) {
 	}
 	return count;
 }
+
+bool Manager::checkBrand(string brand) {
+	ifstream fin;
+	fin.open("C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/data.txt");
+	while(!fin.eof()) {
+		string buf;
+		fin >> buf;
+		if (buf == brand) {
+			return true;
+		}
+	}
+	fin.close();
+	return false;
+}

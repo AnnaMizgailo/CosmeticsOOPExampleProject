@@ -1,14 +1,24 @@
 ﻿#include "Brand.h"
+#include <cstdio>
+
+const string mainFileName = "C:/Users/Lenovo/Desktop/STEP/С++/GitHubProject/NewChapter4/data.txt";
+const string fileName = "C:/Users/Lenovo/Desktop/STEP/С++/GitHubProject/NewChapter4/rubbish.txt";
+
 
 Brand::Brand() {
+
 	brand = "no name";
 	count = 0;
 	list = NULL;
 }
 Brand::Brand(string brand) {
+	ofstream fout;
+	fout.open(mainFileName, ios_base::app);
 	this->brand = brand;
 	count = 0;
 	list = NULL;
+	fout << brand << endl;
+	fout.close();
 }
 //Brand::Brand(string brand, Cosmetics* list, int count) {
 //	this->brand = brand;
@@ -16,6 +26,33 @@ Brand::Brand(string brand) {
 //	this->list = list;
 //}
 Brand::~Brand() {
+	ifstream fin;
+	fin.open(mainFileName);
+	ofstream fout;
+	fout.open(fileName);
+	while (fin.eof()) {
+		string buf;
+		fin >> buf;
+		if (buf != brand) {
+			fout << brand << endl;
+		}
+	}
+	fin.close();
+	fout.close();
+	std::remove("C:/Users/Lenovo/Desktop/STEP/С++/GitHubProject/NewChapter4/data.txt");
+
+	ifstream in;
+	in.open(fileName);
+	ofstream out;
+	out.open(mainFileName);
+
+	while (in.eof()) {
+		string buf;
+		in >> buf;
+		out << brand << endl;
+	}
+	in.close();
+	out.close();
 	delete[] list;
 }
 

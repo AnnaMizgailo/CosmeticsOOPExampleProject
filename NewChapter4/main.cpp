@@ -4,7 +4,13 @@
 #include "Cosmetics.h" 
 #include "TopProduct.h" 
 int main() {
+
+
+
+
 	Brand brand("NYX");
+	Brand brand1("BelorDesign");
+	Brand brand2("Mac");
 	Cosmetics cs("foundation", 2024, 10, 10.99, true, true);
 	Cosmetics cs1("mascara", 2023, 8, 3.99, false, true);
 	Cosmetics cs2("blush", 2023, 9, 5.99, false, true);
@@ -18,5 +24,8 @@ int main() {
 	brand.add(cs3);
 
 	Manager::sortByNameDesc(brand);
-	cout << scs5.getInfo();
+	cout << scs5.getInfo() << endl;
+	cout << Manager::checkBrand("BelorDesign") << endl;
+
+	system("pause");
 }

@@ -1,5 +1,8 @@
 #include "Manager.h"
 
+const char* mainFileName = "C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/data.txt";
+const char* fileName = "C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/rubbish.txt";
+
 void Manager::sortByNameAcs(Brand& brand) {
 	const string alphabet = "abcdefghigklmnopqrstuvwxyz";
 	for (int i = 0; i < brand.count - 1; i++) {
@@ -119,8 +122,8 @@ bool Manager::checkProduct(Brand& brand, Cosmetics& cosmetics) {
 		if (brand.list[i].getName() == cosmetics.getName()) {
 			return true;
 		}
-		return false;
 	}
+	return false;
 }
 
 int Manager::countOfProductsWithCostGreaterThan(Brand& brand, double cost) {
@@ -154,4 +157,37 @@ bool Manager::checkBrand(string brand) {
 	}
 	fin.close();
 	return false;
+}
+
+void Manager::deleteBrand(string brand) {
+	ifstream fin;
+	fin.open(mainFileName);
+	ofstream fout;
+	fout.open(fileName);
+	while (!fin.eof()) {
+		string buf;
+		std::getline(fin, buf);
+		if (buf != brand) {
+			fout << buf << endl;
+		}
+	}
+	fin.close();
+	fout.close();
+	std::remove(mainFileName);
+	std::rename(fileName, mainFileName);
+	
+	/*
+	ifstream in;
+	in.open(fileName);
+	ofstream out;
+	out.open(mainFileName);
+
+	while (in.eof()) {
+		string buf;
+		in >> buf;
+		out << buf << endl;
+	}
+	in.close();
+	out.close();
+	*/
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "Brand.h"
-class Manager{
+
+class Manager {
 
 public:
 	static void sortByNameAcs(Brand& brand);
@@ -16,6 +17,7 @@ public:
 	static double calcAvgRating(Brand& brand);
 
 	static bool checkBrand(string brand);
+	static void deleteBrand(string brand);
 	static bool checkProduct(Brand& brand, Cosmetics& cosmetics);
 	static int countOfProductsWithCostGreaterThan(Brand& brand, double cost);
 	static int countOfProductsWithCostLessThan(Brand& brand, double cost);

@@ -2,7 +2,7 @@
 #include "Header.h"
 #include "Cosmetics.h"
 
-class Brand{
+class Brand {
 	friend class Manager;
 private:
 	
@@ -16,7 +16,6 @@ public:
 	Brand(string brand);
 	//Brand(string brand, Cosmetics* list, int count);
 	~Brand();
-
 	string getBrand();
 	void setBrand(string brand);
 	int getCount();

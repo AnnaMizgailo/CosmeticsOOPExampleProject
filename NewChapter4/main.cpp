@@ -22,8 +22,9 @@ int main() {
 	brand.add(cs1);
 	brand.add(cs2);
 	brand.add(cs3);
-
-	Manager::sortByNameDesc(brand);
+	Manager::deleteBrand("NYX");
+	Manager::sortByNameDesc(brand1);
+	cout << brand.getInfo() << endl;
 	cout << scs5.getInfo() << endl;
 	cout << Manager::checkBrand("BelorDesign") << endl;
 

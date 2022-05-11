@@ -1,4 +1,5 @@
 ﻿#include "Brand.h"
+#include "Manager.h"
 #include <cstdio>
 
 const string mainFileName = "C:/Users/Lenovo/Desktop/STEP/С++/GitHubProject/NewChapter4/data.txt";
@@ -6,10 +7,13 @@ const string fileName = "C:/Users/Lenovo/Desktop/STEP/С++/GitHubProject/NewChap
 
 
 Brand::Brand() {
-
+	/*ofstream fout;
+	fout.open(mainFileName, ios_base::app);*/
 	brand = "no name";
 	count = 0;
 	list = NULL;
+	/*fout << brand << endl;
+	fout.close();*/
 }
 Brand::Brand(string brand) {
 	ofstream fout;
@@ -20,104 +24,100 @@ Brand::Brand(string brand) {
 	fout << brand << endl;
 	fout.close();
 }
-//Brand::Brand(string brand, Cosmetics* list, int count) {
-//	this->brand = brand;
-//	this->count = count;
-//	this->list = list;
-//}
 Brand::~Brand() {
-	ifstream fin;
-	fin.open(mainFileName);
-	ofstream fout;
-	fout.open(fileName);
-	while (fin.eof()) {
-		string buf;
-		fin >> buf;
-		if (buf != brand) {
-			fout << brand << endl;
-		}
-	}
-	fin.close();
-	fout.close();
 	std::remove("C:/Users/Lenovo/Desktop/STEP/С++/GitHubProject/NewChapter4/data.txt");
-
-	ifstream in;
-	in.open(fileName);
-	ofstream out;
-	out.open(mainFileName);
-
-	while (in.eof()) {
-		string buf;
-		in >> buf;
-		out << brand << endl;
-	}
-	in.close();
-	out.close();
+	std::remove("C:/Users/Lenovo/Desktop/STEP/С++/GitHubProject/NewChapter4/rubbish.txt");
 	delete[] list;
 }
 
+
+
 string Brand::getBrand() {
-	return brand;
+	if (Manager::checkBrand(brand)) {
+		return brand;
+	}	
+	return "this brand was deleted :<";
 }
 void Brand::setBrand(string brand) {
-	this->brand = brand;
+	if (Manager::checkBrand(brand)) {
+		this->brand = brand;
+	}
+	else {
+		cout << "this brand was deleted :<" << endl;
+	}
+	
 }
 int Brand::getCount() {
-	return count;
+	if (Manager::checkBrand(brand)) {
+		return count;
+	}
+	return 0;
 }
 Cosmetics Brand::get(int index) {
-	if (index < 0 || index >= count || list != NULL) {
-		return Cosmetics();
+	if (Manager::checkBrand(brand)) {
+		if (index < 0 || index >= count || list != NULL) {
+			return Cosmetics();
+		}
+		return list[index];
 	}
-	return list[index];
+	return list[NULL];
 }
 
 void Brand::add(Cosmetics cosmetics) {
-	if (list == NULL) {
-		list = new Cosmetics[1];
-		count = 1;
-		list[0] = cosmetics;
-	}
-	else {
-		Cosmetics* temp = new Cosmetics[count + 1];
-		int i = 0;
-		for (; i < count; i++) {
-			temp[i] = list[i];
+	if (Manager::checkBrand(brand)) {
+		if (list == NULL) {
+			list = new Cosmetics[1];
+			count = 1;
+			list[0] = cosmetics;
 		}
-		temp[i] = cosmetics;
-		delete[] list;
-		list = temp;
-		count++;
+		else {
+			Cosmetics* temp = new Cosmetics[count + 1];
+			int i = 0;
+			for (; i < count; i++) {
+				temp[i] = list[i];
+			}
+			temp[i] = cosmetics;
+			delete[] list;
+			list = temp;
+			count++;
+		}
+	}else {
+		cout << "this brand was deleted :<" << endl;
 	}
+	
 }
 void Brand::remove(int index) {
-	if (list != NULL && index >= 0 && index < count) {
-		Cosmetics* temp = new Cosmetics[count - 1];
-		for (int i = 0, j = 0; i < count; i++) {
-			if (i != index) {
-				temp[j] = list[i];
-				j++;
-			}	
+	if (Manager::checkBrand(brand)) {
+		if (list != NULL && index >= 0 && index < count) {
+			Cosmetics* temp = new Cosmetics[count - 1];
+			for (int i = 0, j = 0; i < count; i++) {
+				if (i != index) {
+					temp[j] = list[i];
+					j++;
+				}
+			}
+			delete[] list;
+			list = temp;
+			count--;
 		}
-		delete[] list;
-		list = temp;
-		count--;
+	}
+	else {
+		cout << "this brand was deleted :<" << endl;
 	}
 	
 }
 
-//void change(Cosmetics& cosmetics) {
-//	srand(time(NULL));
-//	cosmetics.rating = rand() % 10 + 1;
-//}
-
 string Brand::getInfo() {
-	if (list == NULL) {
-		return "Brand" + brand + " is empty";
+	if (Manager::checkBrand(brand)) {
+		if (list == NULL) {
+			return "Brand" + brand + " is empty";
+		}
+		string msg = "Brand " + brand + ":\n";
+		for (int i = 0; i < count; i++) {
+			msg += list[i].getInfo() + "\n";
+		}
+		return msg;
 	}
-	string msg = "Brand " + brand + ":\n";
-	for (int i = 0; i < count; i++) {
-		msg += list[i].getInfo() + "\n";
-	}
-	return msg;
+	return "this brand was deleted";
+	
 }

@@ -20,6 +20,7 @@ public:
 	static const int MIN_COST = 1;
 
 	Cosmetics();
+	Cosmetics(const Cosmetics& src);
 	Cosmetics(string name, int expiringYear, int rating, double cost, bool vegan, bool cruelty_free);
 	~Cosmetics();
 
@@ -31,7 +32,7 @@ public:
 	void setName(string name);
 
 	double getCost();
-	void setCost(int cost);
+	void setCost(double cost);
 	
 	int getExpiringYear();
 	void setExpiringYear(int expiringYear);
@@ -48,6 +49,9 @@ public:
 	
 
 	string getInfo();
+
+	static Cosmetics creatingCosmetics();
+	int changeCosmetics(Cosmetics* cs, int index);
 };
 
 

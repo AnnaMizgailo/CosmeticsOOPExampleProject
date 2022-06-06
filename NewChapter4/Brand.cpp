@@ -24,6 +24,17 @@ Brand::Brand(string brand) {
 	fout << brand << endl;
 	fout.close();
 }
+
+Brand::Brand(const Brand& src) {
+	brand = src.brand;
+	count = src.count;
+    list = new Cosmetics[count];
+	for (int i = 0; i < count; i++) {
+		list[i] = src.list[i];
+	}
+
+}
+
 Brand::~Brand() {
 	std::remove("C:/Users/Lenovo/Desktop/STEP/С++/GitHubProject/NewChapter4/data.txt");
 	std::remove("C:/Users/Lenovo/Desktop/STEP/С++/GitHubProject/NewChapter4/rubbish.txt");
@@ -39,12 +50,12 @@ string Brand::getBrand() {
 	return "this brand was deleted :<";
 }
 void Brand::setBrand(string brand) {
-	if (Manager::checkBrand(brand)) {
+	//if (Manager::checkBrand(brand)) {
 		this->brand = brand;
-	}
+	/*}
 	else {
 		cout << "this brand was deleted :<" << endl;
-	}
+	}*/
 	
 }
 int Brand::getCount() {
@@ -64,7 +75,7 @@ Cosmetics Brand::get(int index) {
 }
 
 void Brand::add(Cosmetics cosmetics) {
-	if (Manager::checkBrand(brand)) {
+	//if (Manager::checkBrand(brand)) {
 		if (list == NULL) {
 			list = new Cosmetics[1];
 			count = 1;
@@ -81,9 +92,9 @@ void Brand::add(Cosmetics cosmetics) {
 			list = temp;
 			count++;
 		}
-	}else {
+	/*}else {
 		cout << "this brand was deleted :<" << endl;
-	}
+	}*/
 	
 }
 void Brand::remove(int index) {
@@ -108,7 +119,7 @@ void Brand::remove(int index) {
 }
 
 string Brand::getInfo() {
-	if (Manager::checkBrand(brand)) {
+	//if (Manager::checkBrand(brand)) {
 		if (list == NULL) {
 			return "Brand" + brand + " is empty";
 		}
@@ -117,7 +128,15 @@ string Brand::getInfo() {
 			msg += list[i].getInfo() + "\n";
 		}
 		return msg;
-	}
-	return "this brand was deleted";
+	/*}
+	return "this brand was deleted";*/
 	
+}
+
+Brand Brand::creatingBrand() {
+	string brand;
+	cout << "Enter name of brand:" << endl;
+	cin >> brand;
+	return Brand(brand);
+
 }

@@ -24,5 +24,8 @@ class TopProduct : public Cosmetics {
 		void setSkinType(string skinType);
 
 		string getInfo();
+		static TopProduct creatingTopProduct();
+
+		void changeTopProduct(TopProduct* tp, int index);
 };
 

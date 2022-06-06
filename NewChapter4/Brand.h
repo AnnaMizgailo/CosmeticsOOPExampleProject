@@ -12,7 +12,7 @@ private:
 
 public:
 	Brand();
-	Brand(const Brand& src) = delete;
+	Brand(const Brand& src);
 	Brand(string brand);
 	//Brand(string brand, Cosmetics* list, int count);
 	~Brand();
@@ -24,6 +24,8 @@ public:
 	void remove(int index);
 	void change(Cosmetics& cosmetics);
 	string getInfo();
+
+	static Brand creatingBrand();
 
 
 

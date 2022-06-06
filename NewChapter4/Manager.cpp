@@ -1,4 +1,5 @@
 #include "Manager.h"
+#include <cassert>
 
 const char* mainFileName = "C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/data.txt";
 const char* fileName = "C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/rubbish.txt";
@@ -146,16 +147,16 @@ int Manager::countOfProductsWithCostLessThan(Brand& brand, double cost) {
 }
 
 bool Manager::checkBrand(string brand) {
-	ifstream fin;
-	fin.open("C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/data.txt");
-	while(!fin.eof()) {
+	ifstream fin("C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/data.txt");
+	assert(fin.is_open());
+
+	while (!fin.eof()) {
 		string buf;
 		fin >> buf;
 		if (buf == brand) {
 			return true;
 		}
 	}
-	fin.close();
 	return false;
 }
 
@@ -163,7 +164,7 @@ void Manager::deleteBrand(string brand) {
 	ifstream fin;
 	fin.open(mainFileName);
 	ofstream fout;
-	fout.open(fileName);
+	fout.open(fileName, ios_base::out | ios_base::trunc);
 	while (!fin.eof()) {
 		string buf;
 		std::getline(fin, buf);
@@ -174,7 +175,7 @@ void Manager::deleteBrand(string brand) {
 	fin.close();
 	fout.close();
 	std::remove(mainFileName);
-	std::rename(fileName, mainFileName);
+	auto res = std::rename(fileName, mainFileName);
 	
 	/*
 	ifstream in;

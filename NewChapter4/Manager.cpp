@@ -1,8 +1,6 @@
 #include "Manager.h"
 #include <cassert>
 
-const char* mainFileName = "C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/data.txt";
-const char* fileName = "C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/rubbish.txt";
 
 void Manager::sortByNameAcs(Brand& brand) {
 	const string alphabet = "abcdefghigklmnopqrstuvwxyz";
@@ -162,9 +160,9 @@ bool Manager::checkBrand(string brand) {
 
 void Manager::deleteBrand(string brand) {
 	ifstream fin;
-	fin.open(mainFileName);
+	fin.open("C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/data.txt");
 	ofstream fout;
-	fout.open(fileName, ios_base::out | ios_base::trunc);
+	fout.open("C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/rubbish.txt");
 	while (!fin.eof()) {
 		string buf;
 		std::getline(fin, buf);
@@ -174,21 +172,19 @@ void Manager::deleteBrand(string brand) {
 	}
 	fin.close();
 	fout.close();
-	std::remove(mainFileName);
-	auto res = std::rename(fileName, mainFileName);
-	
-	/*
-	ifstream in;
-	in.open(fileName);
-	ofstream out;
-	out.open(mainFileName);
+	ofstream fout1, fout2;
+	fout1.open("C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/data.txt", ios::out);
+	fout2.open("C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/data.txt");
+	ifstream fin1;
+	fin1.open("C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/rubbish.txt");
 
-	while (in.eof()) {
+	while (!fin1.eof()) {
 		string buf;
-		in >> buf;
-		out << buf << endl;
+		std::getline(fin1, buf);
+		fout2 << buf << endl;
 	}
-	in.close();
-	out.close();
-	*/
+	fin1.close();
+	fin1.open("C:/Users/Lenovo/Desktop/STEP/Ñ++/GitHubProject/NewChapter4/rubbish.txt", ios::out);
+
+
 }

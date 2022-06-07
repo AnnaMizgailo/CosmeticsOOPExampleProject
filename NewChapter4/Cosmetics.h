@@ -48,7 +48,7 @@ public:
 
 	
 
-	string getInfo();
+	virtual string getInfo();
 
 	static Cosmetics creatingCosmetics();
 	int changeCosmetics(Cosmetics* cs, int index);

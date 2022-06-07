@@ -11,6 +11,8 @@ private:
 	Cosmetics* list;
 
 public:
+
+	
 	Brand();
 	Brand(const Brand& src);
 	Brand(string brand);

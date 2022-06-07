@@ -44,7 +44,6 @@ TopProduct TopProduct::creatingTopProduct() {
 }
 
 void TopProduct::changeTopProduct(TopProduct* tp, int index){
-//	Cosmetics::changeCosmetics(tp);
 	int ans = changeCosmetics(tp, index);
 	if (ans == 7) {
 		string newProductNum;

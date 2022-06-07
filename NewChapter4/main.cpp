@@ -46,7 +46,7 @@ void menu() {
 	cout << "Finally you can do whatever you want" << endl;
 	cout << "Don't be shy, let's creativity take over you!" << endl;
 	cout << "*********************************************" << endl;
-	while (mainUserChoice != 8) {
+	while (mainUserChoice != 9) {
 		cout << "Create new cosmetics item -> 1" << endl;
 		cout << "Create new brand -> 2" << endl;
 		cout << "Create top product -> 3" << endl;
@@ -54,7 +54,8 @@ void menu() {
 		cout << "Change an existing item -> 5" << endl;
 		cout << "Add your items to the brand -> 6" << endl;
 		cout << "Show info -> 7" << endl;
-		cout << "Exit -> 8" << endl;
+		cout << "Show sorted info -> 8" << endl;
+		cout << "Exit -> 9" << endl;
 		cin >> mainUserChoice;
 		cout << "*********************************************" << endl;
 		switch (mainUserChoice) {
@@ -93,9 +94,11 @@ void menu() {
 				delete[] cs;
 				cs = cs1;
 				cout << "Cosmetics deleted successfully" << endl;
-			} else if (ans == 2) {
+			}
+			else if (ans == 2) {
 				cout << "Enter index of brand: " << endl;
 				cin >> index;
+				string brName = br[index].getBrand();
 				Brand* br1 = new Brand[255];
 				for (int p = 0, h = 0; p < j; p++) {
 					if (p != index) {
@@ -105,8 +108,10 @@ void menu() {
 				}
 				delete[] br;
 				br = br1;
+				Manager::deleteBrand(brName);
 				cout << "Brand deleted successfully" << endl;
-			} else if (ans == 3) {
+			}
+			else if (ans == 3) {
 				cout << "Enter index of top product: " << endl;
 				cin >> index;
 				TopProduct* tp1 = new TopProduct[255];
@@ -167,7 +172,7 @@ void menu() {
 				cout << "8. skin type" << endl;
 				top.changeTopProduct(tp, indexCase4);
 				cout << "Top product changed successfuly" << endl;
-			}		
+			}
 			break;
 		case 6:
 			int indexCase6Brand, indexCase6Item, item6;
@@ -181,7 +186,8 @@ void menu() {
 				cout << "Enter index of cosmetics: " << endl;
 				cin >> item6;
 				br[indexCase6Brand].add(cs[item6]);
-			} else if (indexCase6Item == 2) {
+			}
+			else if (indexCase6Item == 2) {
 				cout << "Enter index of top product: " << endl;
 				cin >> item6;
 				br[indexCase6Brand].add(tp[item6]);
@@ -192,6 +198,41 @@ void menu() {
 			for (int h = 0; h < j; h++) {
 				cout << br[h].getInfo() << endl;
 			}
+			system("pause");
+			break;
+		case 8:
+			string answ;
+			int answer;
+			cout << "You wanna to sort your data desc or asc?" << endl;
+			cin >> answ;
+			cout << "Which way you wanna sort your data?" << endl;
+			cout << "1. by name" << endl;
+			cout << "2. by cost" << endl;
+			cout << "3. by rating" << endl;
+			cin >> answer;
+			if (answ == "desc") {
+				if (answer == 1) {
+					Manager::sortByNameDesc;
+				}
+				else if (answer == 2) {
+					Manager::sortByCostDesc;
+				}
+				else {
+					Manager::sortByRatingDesc;
+				}
+			}
+			else if (answ == "asc") {
+				if (answer == 1) {
+					Manager::sortByNameAcs;
+				}
+				else if (answer == 2) {
+					Manager::sortByCostAcs;
+				}
+				else {
+					Manager::sortByRatingAcs;
+				}
+			}
+			system("pause");
 			break;
 		}
 		system("cls");
